@@ -1,3 +1,3 @@
 tien=input("helllo ca nha:")
-//helo
+#đây là test nhé
 print(tien)
