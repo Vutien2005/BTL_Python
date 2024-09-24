@@ -39,8 +39,8 @@ def open_apps():
     print("Tôi có thể mở các ứng dụng như Chrome, File Explorer")
 
     chosse_app = input("Nhập tên ứng dụng: ")
-    if chosse_app.lower() == "valorant":
-        os.system("start C:\\Users\\Public\\Desktop\\VALORANT.lnk")
+    if chosse_app.lower() == "chrome":
+        os.system("start C:\\Users\\Public\\Desktop\\chrome")
     elif chosse_app.lower() == "file explorer":
         os.system("start file explorer")
 def google_search(duong_dan):
