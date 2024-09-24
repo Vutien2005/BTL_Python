@@ -3,14 +3,15 @@ import os
 import sys
 import datetime
 
-def nap_the(money):
+def nap_the():
+    money = float(input("Nhập số tiền bạn muốn nạp: "))
     with open("Game\\tai_xiu.txt", "r") as file:
         tk = file.read()
     with open("Game\\tai_xiu.txt", "w") as file:
         file.write(str(float(tk) + money))
-    with open("Game\\lich_su_nap.txt", "a") as file:
-        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {money}VND\n')
-
+    with open("Game\\lich_su_nap.txt", "a", encoding = "UTF-8") as file:
+        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {str(money)}VND\n')
+    print(f'Đã nạp thành công {money}VND')
 
 def kt_tk():
     with open("Game\\tai_xiu.txt", "r") as file:
@@ -26,9 +27,10 @@ def roll_dice():
 def nap_tien():
     tien = float(input("Nhập số tiền bạn muốn nạp: "))
     with open("Game\\tai_xiu.txt", "w") as file:
-        file.write(tien)
-    with open("Game\\lich_su_nap.txt", "a") as file:
-        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {tien}VND\n')
+        file.write(str(tien))
+
+    with open("Game\\lich_su_nap.txt", "a", encoding = "UTF-8") as file:
+        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {str(tien)}VND\n')
 def return_tx(dice):
     diem = sum(dice)
     if 11 <= diem <= 18:
@@ -55,13 +57,13 @@ def rut_tien():
     else:
         with open("Game\\tai_xiu.txt", "w") as file:
             file.write(str(float(tk) - float(tien)))
-        with open("Game\\lich_su_rut.txt", "a") as file:
-            file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã rút {tien}VND\n')
+        with open("Game\\lich_su_rut.txt", "a", encoding = "UTF-8") as file:
+            file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã rút {str(tien)}VND\n')
 def play_game():
     print("Chào mừng đến với trò chơi may mắn")
     with open("Game\\tai_xiu.txt", "r") as file:
         tk = file.read()
-    if float(tk) == 0:
+    if float(tk) == 0.0:
         print("Tài khoản của bạn không đủ để tham gia, bạn cần nạp thêm.")
         ans = input("Bạn có muốn nạp tiền không (Y/N): ")
         if ans.lower() == "y":
@@ -121,9 +123,7 @@ def main():
         elif choice == 2:
             os.system("cls")
             print("TRANG CHỦ NẠP THẺ")
-            money = int(input("Nhập số tiền bạn muốn nạp: "))
-            nap_the(money)
-            print(f'Đã nạp thành công {money}VND')
+            nap_the()
             enter = input("Nhấn ENTER để tiếp tục: ")
         elif choice == 3:
             os.system("cls")
