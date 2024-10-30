@@ -8,17 +8,10 @@ def nap_the():
     with open("Game\\tai_xiu.txt", "r") as file:
         tk = file.read()
     with open("Game\\tai_xiu.txt", "w") as file:
-<<<<<<< Updated upstream
         file.write(str(float(tk) + money))
     with open("Game\\lich_su_nap.txt", "a", encoding = "UTF-8") as file:
         file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {str(money)}VND\n')
     print(f'Đã nạp thành công {money}VND')
-=======
-        file.write((tk) + money)#sai ở đây
-    with open("Game\\lich_su_nap.txt", "a") as file:
-        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {money}VND\n')
-
->>>>>>> Stashed changes
 
 def kt_tk():
     with open("Game\\tai_xiu.txt", "r") as file:
@@ -34,16 +27,10 @@ def roll_dice():
 def nap_tien():
     tien = float(input("Nhập số tiền bạn muốn nạp: "))
     with open("Game\\tai_xiu.txt", "w") as file:
-<<<<<<< Updated upstream
         file.write(str(tien))
 
     with open("Game\\lich_su_nap.txt", "a", encoding = "UTF-8") as file:
         file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {str(tien)}VND\n')
-=======
-        file.write(tien)#lỗi cú pháp
-    with open("Game\\lich_su_nap.txt", "a") as file:
-        file.write(f'{datetime.datetime.now().strftime("%H:%M:%S")} - Đã nạp thêm {tien}VND\n')
->>>>>>> Stashed changes
 def return_tx(dice):
     diem = sum(dice)
     if 11 <= diem <= 18:
